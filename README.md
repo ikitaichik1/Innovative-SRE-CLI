@@ -1,6 +1,7 @@
 # SRE CLI Tool
 
-This is a command-line interface (CLI) tool to manage and diagnose Kubernetes deployments, services, and pods.
+This is a command-line interface (CLI) tool to manage and diagnose Kubernetes deployments, services, and pods.<br>
+Write logs to "sre_cli.log" at the script's directory, Can modify path in [sre.py](./sre.py#L8)
 
 ## Features
 
@@ -9,13 +10,13 @@ This is a command-line interface (CLI) tool to manage and diagnose Kubernetes de
 - View detailed deployment information (replicas, strategy, associated services, endpoints, etc.)
 - Run diagnostics to check the health of deployments and pods
 - Rollout new changes by restarting deployments
-- Fetch logs from deployments or specific pods
-
+- Fetch logs from deployments or specific pod
+ 
 ## Requirements
 
-- Python 3.4+ (recommended: Python 3.8+)
-- Kubernetes cluster with API access
-- Access to the `kubeconfig` file or Kubernetes in-cluster configuration
+- Python 3.4+ (recommended: Python 3.8+).
+- Kubernetes cluster with API access.
+- Access to the `kubeconfig` file or Kubernetes in-cluster configuration. (Using config.load_incluster_config() or config.load_kube_config())
 
 ## Installation and usage
 
@@ -27,10 +28,9 @@ or
 pip install kubernetes click
 ```
 
-### 2. Usage
-- General Syntax
+### 2. Usage for sre.py
 ```bash
-sre.py [OPTIONS] COMMAND [ARGS]...
+python sre.py [OPTIONS] COMMAND [ARGS]...
   Home Assignment: Innovative SRE CLI
 Options:
   --help  Show this message and exit.
@@ -47,7 +47,7 @@ Commands:
 
 **You can use sre.py COMMAND --help to see info about the command:**
 ```bash
-sre.py diagnostic --help
+python sre.py diagnostic --help
 Usage: sre.py diagnostic [OPTIONS]
 
 Options:
@@ -55,5 +55,10 @@ Options:
   --namespace TEXT   Namespace of the deployment to search in.  [required]
   --pod              This is a flag, pass for pod level diagnostics
   --help             Show this message and exit.
+```
+
+### 2. Usage for tests.py
+```bash
+python tests.py
 ```
 
